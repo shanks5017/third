@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Greetings</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffccff;
+            background-image: url('img1.jpg'); /* Replaced with img1.jpg */
+            background-repeat: repeat;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Page Layout */
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Icon Container */
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f78fb3;
+            color: white;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .icon:hover {
+            background-color: #f50057;
+        }
+
+        /* Birthday Decorations and Cake */
+        .birthday-decorations,
+        .birthday-cake {
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .birthday-decorations {
+            height: 250px;
+            background-image: url('img2.jpg'); /* Replaced with img2.jpg */
+        }
+
+        .birthday-cake {
+            height: 200px;
+            background-image: url('img3.jpg'); /* Replaced with img3.jpg */
+        }
+
+        /* Message Box */
+        .message-box {
+            width: 100%;
+            margin-top: 20px;
+            color: #9c27b0;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: black;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        button {
+            font-size: 18px;
+            background-color: #ecf71f;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #e6ed14;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            .icon {
+                width: 80px;
+                height: 80px;
+                font-size: 24px;
+            }
+
+            .birthday-decorations,
+            .birthday-cake {
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .message-box {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="page active">
+        <h1>HAPPY BIRTHDAY CHIPKALI 😁</h1>
+        <p>Click on one of the icons to reveal something special!</p>
+        <div class="icon-container">
+            <div class="icon" id="specialIcon">🥳</div>
+            <div class="icon" id="giftIcon">🎂</div>
+        </div>
+        <div id="birthdayDecorations" class="birthday-decorations"></div>
+        <div id="birthdayCake" class="birthday-cake"></div>
+        <button onclick="nextPage(2)">Go to Best Wishes</button>
+    </div>
+
+    <div id="page2" class="page">
+        <h1>HAPPY BIRTHDAY 🥳 YEYE!!</h1>
+        <div class="message-box">
+            <h3><p>Hello madam ji kaisi ho sab badiya? Suna hai aap ka janam divass hai aaj?, ji aap hamesha happy Happy happy raho mera Aashirwad apke sar pe hamesha rahe ga hehehe.</p>
+            <p>Aur kuch information hai aapke bare mai jaise - From: Thursday, 15 March 2007, To: Saturday, 15 March 2025 ap 18 ki ho gayii yiipeee!. Aur days Ki baat kare to 6575 day ...! </p>
+            <p>Baki acha laga ho to ke thanku mere liye banta hi hoga? Hehehe ((majak majak)) last but not least ye mere taraf se chotu sa wish plus bday gift hai, agar mai gift diya to ap lo ge nhi per per per next year pakka dunga, u understand chasmisss!!.</p>
+            <p>Chal chal kush mai ho jayada aur jayada soch bhi mat ye kyu vo kyu aisa kyu wagera wagera ((aur gussaa bhi mat hona ji agar maine kuch galat kahaho to maff kardena ,ye disclaimer hai ha)).</p>
+            <p>and and ALL THE BEST exam ke liye , aap ne preparation achi ki hi hogi 100% bass exam denegi deer . Ek dam chill hoke exam diyo tu karlegi aram se mere ko wishwas hai all the very best! pranisha. </p>
+            <p>Pata nhi tune ye sab padha hoga ya nhi if padha ho to ur good girls hehehe </p>
+            <p>ENJOY YOUR DAY.. PRANISHA !!!</p></h3>
+        </div>
+        <button onclick="nextPage(3)">See More Wishes</button>
+    </div>
+
+    <div id="page3" class="page">
+        <h1>🎈 More Cute Wishes 🎈</h1>
+        <div class="message-box">
+            <h3><p>Another year older, but don't worry, you're still young at heart!</p>
+            <p>Sending you smiles and lots of love on your special day!</p>
+            <p>Happy birthday, may your day be as sweet as you!</p></h3>
+        </div>
+        <button onclick="goHome()">Go Home</button>
+    </div>
+
+    <script>
+        let currentPage = 1;
+
+        // Switch to next page
+        function nextPage(page) {
+            document.getElementById('page' + currentPage).classList.remove('active');
+            currentPage = page;
+            document.getElementById('page' + currentPage).classList.add('active');
+        }
+
+        // Go back to the first page
+        function goHome() {
+            currentPage = 1;
+            document.getElementById('page' + currentPage).classList.add('active');
+            document.getElementById('page' + (currentPage + 1)).classList.remove('active');
+            document.getElementById('page' + (currentPage + 2)).classList.remove('active');
+        }
+
+        // Show decoration or cake when clicking on icons
+        document.getElementById('specialIcon').onclick = function() {
+            document.getElementById('birthdayDecorations').style.display = 'block';
+            document.getElementById('birthdayCake').style.display = 'none';
+        };
+
+        document.getElementById('giftIcon').onclick = function() {
+            document.getElementById('birthdayCake').style.display = 'block';
+            document.getElementById('birthdayDecorations').style.display = 'none';
+        };
+    </script>
+
+</body>
+</html>
